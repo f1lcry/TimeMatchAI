@@ -9,14 +9,17 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const COARSE = matchMedia('(pointer: coarse)').matches;
 
+// RU is an authorial rewrite, not a translation. Technical terms (LMS / SIS,
+// AI, "Re-solve") stay in English in both locales — see apps/landing/copy.py
+// for the templating-side counterpart and copy policy.
 const STRINGS = {
   ru: {
-    chrome: 'Весна 2026 · Факультет компьютерных наук НИУ ВШЭ · решено за 4 м 12 с',
+    chrome: 'Весна 2026 · ФКН НИУ ВШЭ · сошлось за 4 м 12 с',
     statusZero: '0 конфликтов',
-    statusConflict: (n) => `${n} конфликт${n === 1 ? '' : n < 5 ? 'а' : 'ов'} — переместите блок`,
+    statusConflict: (n) => `${n} конфликт${n === 1 ? '' : n < 5 ? 'а' : 'ов'} — перенесите карточку`,
     days: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт'],
     resolve: 'Re-solve →',
-    hint: 'Перетащите карточку, чтобы пересобрать вручную.',
+    hint: 'Перетащите карточку — пересоберём вручную.',
     conflictBadge: 'Конфликт',
   },
   en: {

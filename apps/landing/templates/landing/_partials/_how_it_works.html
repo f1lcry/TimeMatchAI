@@ -1,29 +1,29 @@
-{% load i18n %}
+{% load copy_tags %}
 <section class="tm-section" id="how">
   <div class="tm-container">
     <div class="tm-section-head tm-reveal">
-      <span class="tm-eyebrow">{% trans "Как работает" %}</span>
-      <h2>{% trans "От таблиц до решения за три прохода." %}</h2>
-      <p>{% blocktrans %}Тот же класс constraint-оптимизаторов, что используют европейские грузовые операторы, адаптирован под правила академической среды. Без макросов в Excel и ночных перетасовок аудиторий.{% endblocktrans %}</p>
+      <span class="tm-eyebrow">{% c "how.eyebrow" %}</span>
+      <h2>{% c "how.h2" %}</h2>
+      <p>{% c "how.lede" %}</p>
     </div>
     <div class="tm-how__row">
       <div class="tm-step tm-reveal">
         <div class="tm-step__n">STEP 01</div>
-        <h3>{% trans "Подключите данные" %}</h3>
-        <p class="tm-step__body">{% blocktrans %}Импорт аудиторий, преподавателей, дисциплин и потоков из вашей СУО. TimeMatch читает Modeus, LMS HSE, 1С Университет и ещё 12 систем.{% endblocktrans %}</p>
-        <div class="tm-step__mono">↻ {% trans "синхронизация: 1 284 курса · 312 аудиторий · 1 847 студентов" %}</div>
+        <h3>{% c "how.step1.title" %}</h3>
+        <p class="tm-step__body">{% c "how.step1.body" %}</p>
+        <div class="tm-step__mono">{% c "how.step1.mono" %}</div>
       </div>
       <div class="tm-step tm-reveal">
         <div class="tm-step__n">STEP 02</div>
-        <h3>{% trans "Опишите ограничения" %}</h3>
-        <p class="tm-step__body">{% blocktrans %}Жёсткие правила (без двойного бронирования, доступная среда) и мягкие предпочтения (окна преподавателей, близость корпусов). TimeMatch разрешает компромиссы, которые иначе решались бы на комиссии.{% endblocktrans %}</p>
-        <div class="tm-step__mono">hard: 24 · soft: 116 · {% trans "стратегия: balanced" %}</div>
+        <h3>{% c "how.step2.title" %}</h3>
+        <p class="tm-step__body">{% c "how.step2.body" %}</p>
+        <div class="tm-step__mono">{% c "how.step2.mono" %}</div>
       </div>
       <div class="tm-step tm-reveal">
         <div class="tm-step__n">STEP 03</div>
-        <h3>{% trans "Решить. Опубликовать. Пересобрать." %}</h3>
-        <p class="tm-step__body">{% blocktrans %}Оптимизатор находит допустимое и почти-оптимальное расписание за минуты. Когда аудитория закрывается или меняется доступность преподавателя — расписание пересобирается за ночь.{% endblocktrans %}</p>
-        <div class="tm-step__mono">✓ {% trans "решено за 4 мин 12 с · 98,7 % предпочтений выполнено" %}</div>
+        <h3>{% c "how.step3.title" %}</h3>
+        <p class="tm-step__body">{% c "how.step3.body" %}</p>
+        <div class="tm-step__mono">{% c "how.step3.mono" %}</div>
       </div>
     </div>
   </div>

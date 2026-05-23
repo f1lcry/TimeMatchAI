@@ -1,33 +1,33 @@
-{% load i18n %}
+{% load copy_tags %}
 <section class="tm-logobar">
   <div class="tm-container">
     <div class="tm-logobar__head">
-      <span class="tm-eyebrow">{% trans "В переговорах с" %}</span>
+      <span class="tm-eyebrow">{% c "logobar.eyebrow" %}</span>
     </div>
     <div class="tm-logobar__row tm-reveal">
       <div class="tm-uni-word tm-uni-word--anchor">
-        <div class="tm-uni-word__name">НИУ ВШЭ</div>
-        <div class="tm-uni-word__sub">{% trans "Anchor · СПб + Москва" %}</div>
+        <div class="tm-uni-word__name">{% if LANGUAGE_CODE == 'en' %}HSE University{% else %}НИУ ВШЭ{% endif %}</div>
+        <div class="tm-uni-word__sub">{% c "logobar.hse.sub" %}</div>
       </div>
       <div class="tm-uni-word">
-        <div class="tm-uni-word__name">МГУ</div>
-        <div class="tm-uni-word__sub">{% trans "Москва" %}</div>
+        <div class="tm-uni-word__name">{% if LANGUAGE_CODE == 'en' %}MSU{% else %}МГУ{% endif %}</div>
+        <div class="tm-uni-word__sub">{% c "logobar.msu.sub" %}</div>
       </div>
       <div class="tm-uni-word">
-        <div class="tm-uni-word__name">СПбГУ</div>
-        <div class="tm-uni-word__sub">{% trans "Санкт-Петербург" %}</div>
+        <div class="tm-uni-word__name">{% if LANGUAGE_CODE == 'en' %}SPbU{% else %}СПбГУ{% endif %}</div>
+        <div class="tm-uni-word__sub">{% c "logobar.spbu.sub" %}</div>
       </div>
       <div class="tm-uni-word">
-        <div class="tm-uni-word__name">МФТИ</div>
-        <div class="tm-uni-word__sub">{% trans "Долгопрудный" %}</div>
+        <div class="tm-uni-word__name">{% if LANGUAGE_CODE == 'en' %}MIPT{% else %}МФТИ{% endif %}</div>
+        <div class="tm-uni-word__sub">{% c "logobar.mipt.sub" %}</div>
       </div>
       <div class="tm-uni-word">
-        <div class="tm-uni-word__name">ИТМО</div>
-        <div class="tm-uni-word__sub">{% trans "Санкт-Петербург" %}</div>
+        <div class="tm-uni-word__name">ITMO</div>
+        <div class="tm-uni-word__sub">{% c "logobar.itmo.sub" %}</div>
       </div>
       <div class="tm-uni-word">
-        <div class="tm-uni-word__name">УрФУ</div>
-        <div class="tm-uni-word__sub">{% trans "Екатеринбург" %}</div>
+        <div class="tm-uni-word__name">{% if LANGUAGE_CODE == 'en' %}UrFU{% else %}УрФУ{% endif %}</div>
+        <div class="tm-uni-word__sub">{% c "logobar.urfu.sub" %}</div>
       </div>
     </div>
   </div>

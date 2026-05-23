@@ -1,35 +1,35 @@
-{% load i18n %}
+{% load copy_tags %}
 <section class="tm-section tm-section--ink tm-parallax-host" id="stats">
   <div class="tm-grid-pattern-bg tm-grid-pattern-bg--dark" aria-hidden="true"></div>
   <div class="tm-container" style="position:relative;">
     <div class="tm-section-head tm-reveal">
-      <span class="tm-eyebrow">{% trans "Цифры за продуктом" %}</span>
-      <h2>{% trans "Что говорят данные." %}</h2>
+      <span class="tm-eyebrow">{% c "stats.eyebrow" %}</span>
+      <h2>{% c "stats.h2" %}</h2>
     </div>
     <div class="tm-stats__row">
 
       <div class="tm-stat tm-reveal">
         <div class="tm-stat__value tm-countup" data-countup-to="84.5" data-countup-decimals="1" data-countup-suffix="%">0</div>
-        <div class="tm-stat__label">{% trans "студентов хотят сами выбирать структуру расписания" %}</div>
-        <div class="tm-stat__foot">{% trans "Опрос НИУ ВШЭ · n = 612 · 2025" %}</div>
+        <div class="tm-stat__label">{% c "stats.s1.label" %}</div>
+        <div class="tm-stat__foot">{% c "stats.s1.foot" %}</div>
       </div>
 
       <div class="tm-stat tm-reveal">
         <div class="tm-stat__value tm-countup" data-countup-to="5" data-countup-suffix="×">0</div>
-        <div class="tm-stat__label">{% trans "ниже стоимость администрирования vs Excel + ERP" %}</div>
-        <div class="tm-stat__foot">{% trans "Сравнение по 4 университетам · 2024-2025" %}</div>
+        <div class="tm-stat__label">{% c "stats.s2.label" %}</div>
+        <div class="tm-stat__foot">{% c "stats.s2.foot" %}</div>
       </div>
 
       <div class="tm-stat tm-reveal">
-        <div class="tm-stat__value tm-countup" data-countup-to="5" data-countup-prefix="≤" data-countup-suffix=" {% trans 'мин' %}">0</div>
-        <div class="tm-stat__label">{% trans "целевое время на полный пересолв для 1 200 курсов" %}</div>
-        <div class="tm-stat__foot">{% trans "Target SLA · пилот HSE · весна 2026" %}</div>
+        <div class="tm-stat__value tm-countup" data-countup-to="5" data-countup-prefix="≤" data-countup-suffix="{% c 'stats.s3.suffix' %}">0</div>
+        <div class="tm-stat__label">{% c "stats.s3.label" %}</div>
+        <div class="tm-stat__foot">{% c "stats.s3.foot" %}</div>
       </div>
 
       <div class="tm-stat tm-reveal">
         <div class="tm-stat__value tm-stat__value--citron tm-countup" data-countup-to="0" data-countup-static="0">0</div>
-        <div class="tm-stat__label">{% trans "конфликтов на публикации расписания" %}</div>
-        <div class="tm-stat__foot">{% trans "Target SLA · пилот HSE · весна 2026" %}</div>
+        <div class="tm-stat__label">{% c "stats.s4.label" %}</div>
+        <div class="tm-stat__foot">{% c "stats.s4.foot" %}</div>
       </div>
 
     </div>

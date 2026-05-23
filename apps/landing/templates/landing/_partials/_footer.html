@@ -1,52 +1,52 @@
-{% load i18n static %}
+{% load static copy_tags %}
 <footer class="tm-footer">
   <div class="tm-container">
     <div class="tm-footer__row">
       <div class="tm-footer__brand">
         <img src="{% static 'landing/img/logo.svg' %}" alt="TimeMatch" style="height: 32px;">
-        <p>{% blocktrans %}AI-платформа для расписаний российских университетов. Анкер-пилот — НИУ ВШЭ, весна 2026.{% endblocktrans %}</p>
+        <p>{% c "footer.brand.tagline" %}</p>
       </div>
       <div>
-        <div class="tm-footer__col-title">{% trans "Платформа" %}</div>
+        <div class="tm-footer__col-title">{% c "footer.col.platform" %}</div>
         <ul class="tm-footer__list">
-          <li><a href="#platform">{% trans "Solver" %}</a></li>
-          <li><a href="#platform">{% trans "Constraint-язык" %}</a></li>
-          <li><a href="#ai-chat">{% trans "AI-помощник" %}</a></li>
-          <li><a href="#how">{% trans "Интеграции" %}</a></li>
+          <li><a href="#platform">{% c "footer.col.solver" %}</a></li>
+          <li><a href="#platform">{% c "footer.col.constraint_lang" %}</a></li>
+          <li><a href="#ai-chat">{% c "footer.col.ai_assistant" %}</a></li>
+          <li><a href="#how">{% c "footer.col.integrations" %}</a></li>
         </ul>
       </div>
       <div>
-        <div class="tm-footer__col-title">{% trans "Для кого" %}</div>
+        <div class="tm-footer__col-title">{% c "footer.col.for" %}</div>
         <ul class="tm-footer__list">
-          <li><a href="#cta">{% trans "Учебный офис" %}</a></li>
-          <li><a href="#cta">{% trans "Деканы и проректоры" %}</a></li>
-          <li><a href="#cta">{% trans "ИТ-департамент" %}</a></li>
+          <li><a href="#cta">{% c "footer.col.registrars" %}</a></li>
+          <li><a href="#cta">{% c "footer.col.deans" %}</a></li>
+          <li><a href="#cta">{% c "footer.col.it" %}</a></li>
         </ul>
       </div>
       <div>
-        <div class="tm-footer__col-title">{% trans "Команда" %}</div>
+        <div class="tm-footer__col-title">{% c "footer.col.team" %}</div>
         <ul class="tm-footer__list">
-          <li><span>{% trans "О нас (скоро)" %}</span></li>
-          <li><span>{% trans "Карьера (скоро)" %}</span></li>
-          <li><a href="#cta">{% trans "Контакты" %}</a></li>
+          <li><span>{% c "footer.col.about" %}</span></li>
+          <li><span>{% c "footer.col.careers" %}</span></li>
+          <li><a href="#cta">{% c "footer.col.contact" %}</a></li>
         </ul>
       </div>
       <div>
-        <div class="tm-footer__col-title">{% trans "Ресурсы" %}</div>
+        <div class="tm-footer__col-title">{% c "footer.col.resources" %}</div>
         <ul class="tm-footer__list">
-          <li><span>{% trans "Документация (скоро)" %}</span></li>
-          <li><span>{% trans "Исследования (скоро)" %}</span></li>
-          <li><span>{% trans "Статус (скоро)" %}</span></li>
+          <li><span>{% c "footer.col.docs" %}</span></li>
+          <li><span>{% c "footer.col.research" %}</span></li>
+          <li><span>{% c "footer.col.status" %}</span></li>
         </ul>
       </div>
     </div>
     <div class="tm-footer__bar">
-      <span>© 2026 TimeMatch · time-match.tech</span>
+      <span>{% c "footer.copyright" %}</span>
       <span class="tm-footer__legal">
-        <a href="{% url 'landing:privacy' %}">{% trans "Приватность" %}</a>
-        <span aria-disabled="true" title="{% trans 'Скоро' %}">{% trans "Условия" %}</span>
-        <span aria-disabled="true" title="{% trans 'Скоро' %}">152-ФЗ</span>
-        <span aria-disabled="true" title="{% trans 'Скоро' %}">SOC 2</span>
+        <a href="{% url 'landing:privacy' %}">{% c "footer.legal.privacy" %}</a>
+        <span aria-disabled="true" title="{% c 'footer.legal.soon' %}">{% c "footer.legal.terms" %}</span>
+        <span aria-disabled="true" title="{% c 'footer.legal.soon' %}">{% c "footer.legal.152fz" %}</span>
+        <span aria-disabled="true" title="{% c 'footer.legal.soon' %}">{% c "footer.legal.soc2" %}</span>
       </span>
     </div>
   </div>

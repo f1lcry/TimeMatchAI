@@ -1,14 +1,14 @@
-{% load i18n static %}
+{% load copy_tags %}
 <section class="tm-section" id="architecture">
   <div class="tm-container">
     <div class="tm-section-head tm-reveal">
-      <span class="tm-eyebrow">{% trans "Архитектура" %}</span>
-      <h2>{% trans "Один solver. Все источники данных." %}</h2>
-      <p>{% blocktrans %}От СУО до расписания — без промежуточных Excel-файлов. Каждое ограничение проходит через единый оптимизатор; результат публикуется атомарно.{% endblocktrans %}</p>
+      <span class="tm-eyebrow">{% c "solver.eyebrow" %}</span>
+      <h2>{% c "solver.h2" %}</h2>
+      <p>{% c "solver.lede" %}</p>
     </div>
     <div class="tm-solver tm-reveal" data-tm-solver>
       {% include "landing/_partials/_solver_svg.html" %}
-      <div class="tm-solver__caption">{% trans "Inputs · constraints · solver · solved schedule" %}</div>
+      <div class="tm-solver__caption">{% c "solver.caption" %}</div>
     </div>
   </div>
 </section>

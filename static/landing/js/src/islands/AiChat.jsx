@@ -6,30 +6,33 @@ import { useEffect, useRef, useState } from 'react';
 
 const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// RU is an authorial rewrite (Russian phrasing, not a literal port).
+// Tool-call signatures, "tool call", model names — stay in English on both
+// locales. Tables show room/teacher data with Cyrillic in RU, Latin in EN.
 const SCENARIOS = {
   ru: [
     {
-      user: 'Когда у 2 потока БПИ-202 лекции по матану на следующей неделе?',
-      tool: 'get_schedule(group="БПИ-202", course="Матан", week="2026-W18")',
-      answer: 'На следующей неделе у БПИ-202 две лекции по матанализу. Обе в корпусе на Кантемировской.',
+      user: 'Когда у БПИ-202 лекции по матану на следующей неделе?',
+      tool: 'get_schedule(group="BPI-202", course="Calculus", week="2026-W18")',
+      answer: 'На следующей неделе у БПИ-202 две лекции по матанализу — обе в корпусе на Кантемировской.',
       table: [
         { day: 'Вт', time: '10:30', room: '521', topic: 'Матан · Лекция · Соколов Е. А.' },
         { day: 'Чт', time: '12:00', room: '521', topic: 'Матан · Лекция · Соколов Е. А.' },
       ],
     },
     {
-      user: 'У Соколова можно поставить семинар на пятницу в 14:00?',
-      tool: 'get_teacher_load(teacher="Соколов Е. А.", slot="2026-W18-Fri-14:00")',
-      answer: 'Нет, в это окно у преподавателя уже семинар БМИ-181 в 502. Свободный ближайший слот — пятница 15:30.',
+      user: 'Можно поставить семинар Соколова на пятницу в 14:00?',
+      tool: 'get_teacher_load(teacher="Sokolov_EA", slot="2026-W18-Fri-14:00")',
+      answer: 'Не выйдет: в это окно у преподавателя семинар БМИ-181 в 502. Ближайший свободный слот — пятница 15:30.',
       table: [
         { day: 'Пт', time: '14:00', room: '502', topic: 'Соколов · занят — БМИ-181' },
-        { day: 'Пт', time: '15:30', room: '—',   topic: 'Свободно — можно поставить' },
+        { day: 'Пт', time: '15:30', room: '—',   topic: 'Свободно — можно ставить' },
       ],
     },
     {
       user: 'Сколько свободных аудиторий на 60+ мест по средам?',
       tool: 'get_room_availability(capacity=">=60", day="Wed")',
-      answer: 'По средам свободны 4 большие аудитории. Загруженность ниже среднего по семестру (–18%).',
+      answer: 'По средам свободны 4 большие аудитории. Загрузка на 18 % ниже среднесеместровой.',
       table: [
         { day: 'Ср', time: '09:00', room: '101 · 120 мест', topic: 'свободна' },
         { day: 'Ср', time: '10:30', room: '404 · 80 мест',  topic: 'свободна' },
@@ -41,7 +44,7 @@ const SCENARIOS = {
     {
       user: 'When does cohort CS-202 have calculus lectures next week?',
       tool: 'get_schedule(group="CS-202", course="Calculus", week="2026-W18")',
-      answer: 'Two calculus lectures next week. Both in the Kantemirovskaya building.',
+      answer: 'Two calculus lectures next week — both in the Kantemirovskaya building.',
       table: [
         { day: 'Tue', time: '10:30', room: '521', topic: 'Calculus · Lecture · Sokolov' },
         { day: 'Thu', time: '12:00', room: '521', topic: 'Calculus · Lecture · Sokolov' },
@@ -49,8 +52,8 @@ const SCENARIOS = {
     },
     {
       user: 'Can we put a seminar on Friday at 14:00 with Sokolov?',
-      tool: 'get_teacher_load(teacher="Sokolov", slot="2026-W18-Fri-14:00")',
-      answer: 'No — that slot already holds a seminar for BMI-181 in room 502. Next free slot is Friday 15:30.',
+      tool: 'get_teacher_load(teacher="Sokolov_EA", slot="2026-W18-Fri-14:00")',
+      answer: 'Not in that slot — Sokolov already has a BMI-181 seminar in room 502. Nearest free slot: Friday 15:30.',
       table: [
         { day: 'Fri', time: '14:00', room: '502', topic: 'Sokolov · busy — BMI-181' },
         { day: 'Fri', time: '15:30', room: '—',   topic: 'Free — slot available' },
@@ -59,7 +62,7 @@ const SCENARIOS = {
     {
       user: 'How many rooms of 60+ seats are free on Wednesdays?',
       tool: 'get_room_availability(capacity=">=60", day="Wed")',
-      answer: '4 large rooms free on Wednesdays — utilisation 18% below term average.',
+      answer: '4 large rooms free on Wednesdays — utilisation 18% below the term average.',
       table: [
         { day: 'Wed', time: '09:00', room: '101 · 120 seats', topic: 'free' },
         { day: 'Wed', time: '10:30', room: '404 · 80 seats',  topic: 'free' },

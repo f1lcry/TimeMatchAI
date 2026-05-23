@@ -1,13 +1,13 @@
 {% extends "landing/base.html" %}
-{% load i18n %}
-{% block title %}{% trans "Заявка отправлена · TimeMatch" %}{% endblock %}
+{% load copy_tags %}
+{% block title %}{% c "success.title" %}{% endblock %}
 {% block main %}
 <section class="tm-section tm-page">
   <div class="tm-container tm-page__copy">
-    <span class="tm-eyebrow">{% trans "Спасибо" %}</span>
-    <h1>{% trans "Заявка получена." %}</h1>
-    <p>{% blocktrans %}Команда TimeMatch свяжется с вами в течение одного рабочего дня. В ответ пришлём короткое письмо: что нужно подготовить к 30-минутному демо и как мы видим скоупинг пилота.{% endblocktrans %}</p>
-    <a href="{% url 'landing:home' %}" class="tm-btn tm-btn--outline tm-page__back">{% trans "← Вернуться на главную" %}</a>
+    <span class="tm-eyebrow">{% c "success.eyebrow" %}</span>
+    <h1>{% c "success.h1" %}</h1>
+    <p>{% c "success.body" %}</p>
+    <a href="{% url 'landing:home' %}" class="tm-btn tm-btn--outline tm-page__back">{% c "btn.back_home" %}</a>
   </div>
 </section>
 {% endblock %}

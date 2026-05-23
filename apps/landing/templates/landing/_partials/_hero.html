@@ -1,20 +1,18 @@
-{% load i18n %}
+{% load copy_tags %}
 <section class="tm-hero tm-parallax-host" id="hero">
   <div class="tm-grid-pattern-bg" aria-hidden="true"></div>
   <div class="tm-container" style="position:relative;">
     <div class="tm-hero__copy tm-reveal">
-      <span class="tm-eyebrow">{% trans "Платформа · для высшего образования" %}</span>
+      <span class="tm-eyebrow">{% c "hero.eyebrow" %}</span>
       <h1>
-        {% trans "Расписание," %}<br>
-        <span class="tm-hero__accent">{% trans "решено" %}</span><span style="font-style: italic;">.</span>
+        {% c "hero.h1.line1" %}<br>
+        <span class="tm-hero__accent">{% c "hero.h1.accent" %}</span><span style="font-style: italic;">.</span>
       </h1>
-      <p class="tm-hero__lede">
-        {% blocktrans %}TimeMatch собирает оптимизированное расписание университета за часы вместо месяцев — учитывая нагрузку преподавателей, аудитории, ограничения программ и пожелания студентов. Стоимость администрирования снижается до 5 раз.{% endblocktrans %}
-      </p>
+      <p class="tm-hero__lede">{% c "hero.lede" %}</p>
       <div class="tm-hero__cta-row">
-        <a href="#cta" class="tm-btn tm-btn--primary tm-btn--lg">{% trans "Запросить демо" %}</a>
-        <a href="#platform" class="tm-btn tm-btn--outline tm-btn--lg">{% trans "Посмотреть платформу →" %}</a>
-        <span class="tm-hero__pilot">{% trans "· пилот с НИУ ВШЭ · весна 2026" %}</span>
+        <a href="#cta" class="tm-btn tm-btn--primary tm-btn--lg">{% c "btn.demo" %}</a>
+        <a href="#platform" class="tm-btn tm-btn--outline tm-btn--lg">{% c "btn.platform" %}</a>
+        <span class="tm-hero__pilot">{% c "hero.pilot" %}</span>
       </div>
     </div>
 
@@ -22,9 +20,9 @@
       class="tm-schedule-mount tm-reveal"
       data-island="schedule"
       data-props='{"locale": "{{ LANGUAGE_CODE }}"}'
-      aria-label="{% trans 'Демонстрация расписания: оптимизатор пересобирает таблицу каждые несколько секунд.' %}"
+      aria-label="{% c 'hero.schedule.aria' %}"
     >
-      <div class="tm-island-skeleton">{% trans "Загружается расписание…" %}</div>
+      <div class="tm-island-skeleton">{% c "hero.schedule.loading" %}</div>
     </div>
   </div>
 </section>

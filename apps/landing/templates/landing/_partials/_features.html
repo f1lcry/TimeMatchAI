@@ -1,10 +1,10 @@
-{% load i18n %}
+{% load copy_tags %}
 <section class="tm-section tm-section--surface" id="platform">
   <div class="tm-container">
     <div class="tm-section-head tm-reveal">
-      <span class="tm-eyebrow">{% trans "Платформа" %}</span>
-      <h2>{% trans "Одна платформа. Все ограничения." %}</h2>
-      <p>{% blocktrans %}Всё, что нужно учебному офису — в одном месте: с журналом изменений, правами доступа и интеграцией с вашей СУО.{% endblocktrans %}</p>
+      <span class="tm-eyebrow">{% c "features.eyebrow" %}</span>
+      <h2>{% c "features.h2" %}</h2>
+      <p>{% c "features.lede" %}</p>
     </div>
 
     <div class="tm-features__grid">
@@ -12,49 +12,49 @@
       <article class="tm-feature tm-reveal">
         <div class="tm-feature__demo">
           <div class="demo-conflict">
-            <div class="demo-conflict__title">{% trans "Зал 2А · Пн · 09:00" %}</div>
-            <div class="demo-conflict__sub">{% trans "CS 101 · LIN 220 — двойное бронирование" %}</div>
+            <div class="demo-conflict__title">{% c "features.conflict.demo.line1.title" %}</div>
+            <div class="demo-conflict__sub">{% c "features.conflict.demo.line1.sub" %}</div>
           </div>
-          <div class="demo-arrow">↪ {% trans "переносим LIN 220 → Зал 1Б · Пн · 09:00" %}</div>
-          <div class="demo-resolved">✓ {% trans "решено · мягкие предпочтения сохранены" %}</div>
+          <div class="demo-arrow">{% c "features.conflict.demo.line2" %}</div>
+          <div class="demo-resolved">{% c "features.conflict.demo.line3" %}</div>
         </div>
         <div>
-          <h3>{% trans "Конфликты — ещё до публикации" %}</h3>
-          <p>{% blocktrans %}Каждое двойное бронирование, разрыв доступности и окно нагрузки проверяется в момент решения. Конфликт всплывает вместе с ограничением, которое его создало — и платформа предлагает фикс.{% endblocktrans %}</p>
+          <h3>{% c "features.conflict.title" %}</h3>
+          <p>{% c "features.conflict.body" %}</p>
         </div>
       </article>
 
       <article class="tm-feature tm-reveal">
         <div class="tm-feature__demo">
-          <div class="demo-row demo-row--active"><span>no-double-booking</span><span class="demo-row__v">hard</span></div>
-          <div class="demo-row"><span>{% trans "окна преподавателей" %}</span><span class="demo-row__v">soft · w=3</span></div>
-          <div class="demo-row demo-row--active"><span>{% trans "переход ≤ 12 мин" %}</span><span class="demo-row__v">soft · w=2</span></div>
-          <div class="demo-row"><span>{% trans "доступная среда" %}</span><span class="demo-row__v">hard</span></div>
-          <div class="demo-row demo-row--more">+ 24 {% trans "других" %}</div>
+          <div class="demo-row demo-row--active"><span>{% c "features.language.demo.k1" %}</span><span class="demo-row__v">{% c "features.language.demo.v1" %}</span></div>
+          <div class="demo-row"><span>{% c "features.language.demo.k2" %}</span><span class="demo-row__v">{% c "features.language.demo.v2" %}</span></div>
+          <div class="demo-row demo-row--active"><span>{% c "features.language.demo.k3" %}</span><span class="demo-row__v">{% c "features.language.demo.v3" %}</span></div>
+          <div class="demo-row"><span>{% c "features.language.demo.k4" %}</span><span class="demo-row__v">{% c "features.language.demo.v4" %}</span></div>
+          <div class="demo-row demo-row--more">{% c "features.language.demo.more" %}</div>
         </div>
         <div>
-          <h3>{% trans "Язык ограничений для академии" %}</h3>
-          <p>{% blocktrans %}Жёсткие правила и взвешенные предпочтения — простыми словами. Не нужны знания solver-CSP. Декан задаёт свои ограничения, платформа их согласует.{% endblocktrans %}</p>
+          <h3>{% c "features.language.title" %}</h3>
+          <p>{% c "features.language.body" %}</p>
         </div>
       </article>
 
       <article class="tm-feature tm-reveal">
         <div class="tm-feature__demo tm-feature__demo--ink">
-          <div class="tm-mono-dim"># 02:14 · {% trans "обнаружено закрытие аудитории" %}</div>
-          <div>{% trans "Зал 4А → ремонт, 3 недели" %}</div>
-          <div class="tm-mono-dim" style="margin-top: 6px;"># 02:14 · {% trans "пересборка" %}</div>
-          <div>{% trans "итерация · 12 400 кандидатов" %}</div>
-          <div class="tm-mono-accent" style="margin-top: 6px;">✓ {% trans "новое расписание · 04:31 · 0 конфликтов" %}</div>
+          <div class="tm-mono-dim">{% c "features.resolve.demo.line1.tag" %}</div>
+          <div>{% c "features.resolve.demo.line1" %}</div>
+          <div class="tm-mono-dim" style="margin-top: 6px;">{% c "features.resolve.demo.line2.tag" %}</div>
+          <div>{% c "features.resolve.demo.line2" %}</div>
+          <div class="tm-mono-accent" style="margin-top: 6px;">{% c "features.resolve.demo.done" %}</div>
         </div>
         <div>
-          <h3>{% trans "Пересобирает за ночь" %}</h3>
-          <p>{% blocktrans %}Аудитория закрылась, преподаватель уехал, набор вырос. Расписание адаптируется до утра — а ваша команда подтверждает diff на утренней планёрке.{% endblocktrans %}</p>
+          <h3>{% c "features.resolve.title" %}</h3>
+          <p>{% c "features.resolve.body" %}</p>
         </div>
       </article>
 
       <article class="tm-feature tm-reveal">
         <div class="tm-feature__demo tm-feature__demo--ink">
-          <div><span class="tm-mono-accent">POST</span> <span style="opacity:.7;">/v1/solve</span></div>
+          <div><span class="tm-mono-accent">{% c "features.api.demo.line1" %}</span> <span style="opacity:.7;">{% c "features.api.demo.line1.path" %}</span></div>
           <div style="padding-left: 8px;" class="tm-mono-dimer">
             {<br>
             <span style="padding-left:12px;">"term": "2026-S1",</span><br>
@@ -62,11 +62,11 @@
             <span style="padding-left:12px;">"webhook": "..."</span><br>
             }
           </div>
-          <div class="tm-mono-accent" style="margin-top:6px;">→ 202 accepted · job_3f…</div>
+          <div class="tm-mono-accent" style="margin-top:6px;">{% c "features.api.demo.line2" %}</div>
         </div>
         <div>
-          <h3>{% trans "API и webhooks" %}</h3>
-          <p>{% blocktrans %}Запускайте solver из своего workflow СУО. Отправляйте набор, забирайте расписания, подписывайтесь на события решения. На тех же примитивах, что использует внутренняя команда.{% endblocktrans %}</p>
+          <h3>{% c "features.api.title" %}</h3>
+          <p>{% c "features.api.body" %}</p>
         </div>
       </article>
 

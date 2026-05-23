@@ -78,7 +78,7 @@ LANGUAGES = [
     ("ru", _("Russian")),
     ("en", _("English")),
 ]
-LOCALE_PATHS = [BASE_DIR / "apps" / "landing" / "locale"]
+LOCALE_PATHS: list = []  # Landing copy lives in apps.landing.copy (see apps/landing/templatetags/copy_tags.py).
 
 # Static files
 STATIC_URL = "/static/"
