@@ -1,0 +1,54 @@
+{% load i18n %}
+<section class="tm-cta-section" id="cta">
+  <div class="tm-grid-pattern-bg tm-grid-pattern-bg--cta" aria-hidden="true"></div>
+  <div class="tm-container tm-cta-section__copy">
+    <span class="tm-eyebrow" style="color: rgba(251, 249, 244, .6);">{% trans "Начало" %}</span>
+    <h2>
+      {% trans "Подведите" %} <span style="font-style: italic;">{% trans "следующий семестр" %}</span> {% trans "к TimeMatch." %}
+    </h2>
+    <p class="tm-cta-section__sub">
+      {% blocktrans %}30 минут разговора, sample-solve на ваших данных, ясный путь от Excel до опубликованного расписания. Демо ведут со-фаундеры.{% endblocktrans %}
+    </p>
+
+    <form method="post" action="{% url 'landing:lead_create' %}" class="tm-form" novalidate>
+      {% csrf_token %}
+      <div class="tm-form__field">
+        <label for="id_name">{% trans "Имя" %}</label>
+        {{ form.name }}
+      </div>
+      <div class="tm-form__field">
+        <label for="id_email">{% trans "Рабочая почта" %}</label>
+        {{ form.email }}
+      </div>
+      <div class="tm-form__field">
+        <label for="id_university">{% trans "Университет" %}</label>
+        {{ form.university }}
+      </div>
+      <div class="tm-form__field">
+        <label for="id_role">{% trans "Роль" %}</label>
+        {{ form.role }}
+      </div>
+      <div class="tm-form__field tm-form__field--wide">
+        <label for="id_message">{% trans "Кратко о масштабе" %}</label>
+        {{ form.message }}
+      </div>
+
+      {% if form_errors and form.errors %}
+        <div class="tm-form__errors">
+          {% trans "Проверьте поля выше:" %}
+          {% for field in form %}
+            {% for error in field.errors %}<div>· {{ field.label }}: {{ error }}</div>{% endfor %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="tm-form__submit-row">
+        {% url 'landing:privacy' as privacy_url %}
+        <span class="tm-form__legal">
+          {% blocktrans with privacy_url=privacy_url %}Отправляя форму, вы соглашаетесь с обработкой данных согласно <a href="{{ privacy_url }}">политике приватности</a>.{% endblocktrans %}
+        </span>
+        <button type="submit" class="tm-btn tm-btn--primary tm-btn--lg">{% trans "Запросить демо" %}</button>
+      </div>
+    </form>
+  </div>
+</section>

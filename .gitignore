@@ -56,11 +56,12 @@ coverage.xml
 *.cover
 *.py,cover
 
-# Node / front-end (only if/when a JS toolchain lands)
+# Node / front-end
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+static/landing/js/dist/
 
 # OS
 .DS_Store
@@ -79,3 +80,6 @@ Thumbs.db
 .vscode/
 *.swp
 *~
+
+# Claude Code (local skills, hooks, scratch)
+.claude/

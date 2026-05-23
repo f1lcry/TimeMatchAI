@@ -1,0 +1,82 @@
+{% comment %}Inline SVG so host-page CSS custom properties cascade in.
+The .tm-solver-svg root gains .is-visible from solverDiagram.js once it scrolls into view.{% endcomment %}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" role="img" aria-labelledby="solver-title" class="tm-solver-svg" preserveAspectRatio="xMidYMid meet" style="width:100%; height:auto;">
+  <title id="solver-title">TimeMatch constraint solver diagram</title>
+  <defs>
+    <marker id="tmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+    <style>
+      .tm-svg-node circle { fill: var(--tm-paper-50); stroke: var(--tm-ink-900); stroke-width: 1.5; transition: fill 200ms var(--tm-ease), stroke-width 200ms var(--tm-ease); }
+      .tm-svg-node text { font-family: var(--tm-font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; fill: var(--tm-ink-900); }
+      .tm-svg-node:hover circle { fill: var(--tm-citron-400); stroke-width: 2; }
+      .tm-svg-node--solver circle { fill: var(--tm-ink-900); stroke: var(--tm-ink-900); }
+      .tm-svg-node--solver text { fill: var(--tm-paper-50); }
+      .tm-svg-node--solver:hover circle { fill: var(--tm-ink-800); }
+      .tm-svg-edge {
+        fill: none;
+        stroke: var(--tm-ink-700);
+        stroke-width: 1.25;
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        color: var(--tm-ink-700);
+      }
+      .tm-solver-svg.is-visible .tm-svg-edge {
+        animation: tm-svg-draw 900ms var(--tm-ease-out) forwards;
+      }
+      .tm-solver-svg.is-visible .tm-svg-edge:nth-of-type(1) { animation-delay: 80ms; }
+      .tm-solver-svg.is-visible .tm-svg-edge:nth-of-type(2) { animation-delay: 140ms; }
+      .tm-solver-svg.is-visible .tm-svg-edge:nth-of-type(3) { animation-delay: 200ms; }
+      .tm-solver-svg.is-visible .tm-svg-edge:nth-of-type(4) { animation-delay: 260ms; }
+      .tm-solver-svg.is-visible .tm-svg-edge:nth-of-type(5) { animation-delay: 380ms; }
+      .tm-svg-out {
+        fill: none; stroke: var(--tm-citron-500); stroke-width: 1.5;
+        stroke-dasharray: 300; stroke-dashoffset: 300;
+        color: var(--tm-citron-500);
+      }
+      .tm-solver-svg.is-visible .tm-svg-out {
+        animation: tm-svg-draw 700ms var(--tm-ease-out) forwards;
+        animation-delay: 520ms;
+      }
+      @keyframes tm-svg-draw { to { stroke-dashoffset: 0; } }
+      @media (prefers-reduced-motion: reduce) {
+        .tm-svg-edge, .tm-svg-out { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <path class="tm-svg-edge" d="M180,70 C320,70 360,160 470,170" marker-end="url(#tmArrow)"/>
+  <path class="tm-svg-edge" d="M180,150 C320,150 380,170 470,180" marker-end="url(#tmArrow)"/>
+  <path class="tm-svg-edge" d="M180,230 C320,230 380,200 470,190" marker-end="url(#tmArrow)"/>
+  <path class="tm-svg-edge" d="M180,310 C320,310 380,220 470,200" marker-end="url(#tmArrow)"/>
+
+  <path class="tm-svg-out" d="M650,180 C780,180 820,180 900,180" marker-end="url(#tmArrow)"/>
+
+  <g class="tm-svg-node" transform="translate(120, 70)">
+    <circle r="42"/>
+    <text text-anchor="middle" y="4">Rooms</text>
+  </g>
+  <g class="tm-svg-node" transform="translate(120, 150)">
+    <circle r="42"/>
+    <text text-anchor="middle" y="4">Faculty</text>
+  </g>
+  <g class="tm-svg-node" transform="translate(120, 230)">
+    <circle r="42"/>
+    <text text-anchor="middle" y="4">Courses</text>
+  </g>
+  <g class="tm-svg-node" transform="translate(120, 310)">
+    <circle r="42"/>
+    <text text-anchor="middle" y="4">Constraints</text>
+  </g>
+
+  <g class="tm-svg-node tm-svg-node--solver" transform="translate(560, 180)">
+    <circle r="84"/>
+    <text text-anchor="middle" y="-6">Constraint</text>
+    <text text-anchor="middle" y="14">Solver</text>
+  </g>
+
+  <g class="tm-svg-node" transform="translate(960, 180)">
+    <circle r="56"/>
+    <text text-anchor="middle" y="4">Schedule</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+{% load i18n %}
+<section class="tm-section tm-section--surface" id="faq">
+  <div class="tm-container">
+    <div class="tm-section-head tm-reveal">
+      <span class="tm-eyebrow">{% trans "Вопросы" %}</span>
+      <h2>{% trans "Чаще всего спрашивают это." %}</h2>
+    </div>
+
+    <div class="tm-faq__list">
+
+      <details class="tm-faq__item tm-reveal">
+        <summary>
+          <span>{% trans "Как вы обеспечиваете безопасность данных университета?" %}</span>
+          <span class="tm-faq__chev" aria-hidden="true">+</span>
+        </summary>
+        <div class="tm-faq__body">{% blocktrans %}Каждая модель данных привязана к организации (Organization FK). Все ORM-запросы фильтруются по университету текущего пользователя на уровне queryset. AI-помощник вызывает только whitelisted-функции — никакого свободного SQL. Поддержка локального деплоя для университетов с требованиями ФСБ/ФСТЭК.{% endblocktrans %}</div>
+      </details>
+
+      <details class="tm-faq__item tm-reveal">
+        <summary>
+          <span>{% trans "С какими СУО интегрируетесь?" %}</span>
+          <span class="tm-faq__chev" aria-hidden="true">+</span>
+        </summary>
+        <div class="tm-faq__body">{% blocktrans %}Modeus, LMS HSE, 1С Университет, EduPage, Bitrix24-LMS. На пилоте подключаем CSV/Excel-импорт и REST API. Полные коннекторы — на стороне production-внедрения.{% endblocktrans %}</div>
+      </details>
+
+      <details class="tm-faq__item tm-reveal">
+        <summary>
+          <span>{% trans "Как устроен пилот?" %}</span>
+          <span class="tm-faq__chev" aria-hidden="true">+</span>
+        </summary>
+        <div class="tm-faq__body">{% blocktrans %}30 минут демо на ваших данных. Затем 6-12 недель: один факультет, ваш сэмпл расписания, наша команда внедрения. По итогам — отчёт по SLA (время решения, доля выполненных предпочтений) и план перехода на production-контур.{% endblocktrans %}</div>
+      </details>
+
+      <details class="tm-faq__item tm-reveal">
+        <summary>
+          <span>{% trans "Сколько стоит?" %}</span>
+          <span class="tm-faq__chev" aria-hidden="true">+</span>
+        </summary>
+        <div class="tm-faq__body">{% blocktrans %}Пилот — фиксированная цена с учётом сложности данных. Production — годовая подписка, прайс по числу активных студентов и сценариям интеграции. Под индивидуальную инфраструктуру (on-prem, ФСТЭК-аудит) — отдельная схема. Свяжитесь с командой.{% endblocktrans %}</div>
+      </details>
+
+      <details class="tm-faq__item tm-reveal">
+        <summary>
+          <span>{% trans "Кому принадлежат данные?" %}</span>
+          <span class="tm-faq__chev" aria-hidden="true">+</span>
+        </summary>
+        <div class="tm-faq__body">{% blocktrans %}Университету. TimeMatch — обработчик, не владелец. Экспорт расписаний и пользовательских данных в стандартных форматах (iCal, CSV, JSON-схема) доступен в любой момент.{% endblocktrans %}</div>
+      </details>
+
+      <details class="tm-faq__item tm-reveal">
+        <summary>
+          <span>{% trans "В чём отличие от готового модуля СУО или Excel-плагина?" %}</span>
+          <span class="tm-faq__chev" aria-hidden="true">+</span>
+        </summary>
+        <div class="tm-faq__body">{% blocktrans %}Excel и встроенные модули СУО решают через ручное распределение. TimeMatch строит расписание как задачу constraint optimisation: 200+ ограничений одновременно, формальное доказательство решаемости, повторяемость от семестра к семестру. Это другой класс инструмента.{% endblocktrans %}</div>
+      </details>
+
+    </div>
+  </div>
+</section>

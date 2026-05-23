@@ -1,0 +1,53 @@
+{% load i18n static %}
+<footer class="tm-footer">
+  <div class="tm-container">
+    <div class="tm-footer__row">
+      <div class="tm-footer__brand">
+        <img src="{% static 'landing/img/logo.svg' %}" alt="TimeMatch" style="height: 32px;">
+        <p>{% blocktrans %}AI-платформа для расписаний российских университетов. Анкер-пилот — НИУ ВШЭ, весна 2026.{% endblocktrans %}</p>
+      </div>
+      <div>
+        <div class="tm-footer__col-title">{% trans "Платформа" %}</div>
+        <ul class="tm-footer__list">
+          <li><a href="#platform">{% trans "Solver" %}</a></li>
+          <li><a href="#platform">{% trans "Constraint-язык" %}</a></li>
+          <li><a href="#ai-chat">{% trans "AI-помощник" %}</a></li>
+          <li><a href="#how">{% trans "Интеграции" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="tm-footer__col-title">{% trans "Для кого" %}</div>
+        <ul class="tm-footer__list">
+          <li><a href="#cta">{% trans "Учебный офис" %}</a></li>
+          <li><a href="#cta">{% trans "Деканы и проректоры" %}</a></li>
+          <li><a href="#cta">{% trans "ИТ-департамент" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="tm-footer__col-title">{% trans "Команда" %}</div>
+        <ul class="tm-footer__list">
+          <li><span>{% trans "О нас (скоро)" %}</span></li>
+          <li><span>{% trans "Карьера (скоро)" %}</span></li>
+          <li><a href="#cta">{% trans "Контакты" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="tm-footer__col-title">{% trans "Ресурсы" %}</div>
+        <ul class="tm-footer__list">
+          <li><span>{% trans "Документация (скоро)" %}</span></li>
+          <li><span>{% trans "Исследования (скоро)" %}</span></li>
+          <li><span>{% trans "Статус (скоро)" %}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tm-footer__bar">
+      <span>© 2026 TimeMatch · time-match.tech</span>
+      <span class="tm-footer__legal">
+        <a href="{% url 'landing:privacy' %}">{% trans "Приватность" %}</a>
+        <span aria-disabled="true" title="{% trans 'Скоро' %}">{% trans "Условия" %}</span>
+        <span aria-disabled="true" title="{% trans 'Скоро' %}">152-ФЗ</span>
+        <span aria-disabled="true" title="{% trans 'Скоро' %}">SOC 2</span>
+      </span>
+    </div>
+  </div>
+</footer>

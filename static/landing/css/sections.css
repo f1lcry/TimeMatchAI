@@ -1,0 +1,22 @@
+/* TimeMatch — section-specific overrides (small bits not in components.css). */
+
+/* The hero schedule mount has a min-height while JS bundle loads so the page doesn't jump. */
+.tm-schedule-mount { min-height: 480px; position: relative; }
+.tm-aichat-mount { min-height: 320px; position: relative; }
+
+/* Skeleton state for islands before hydration */
+.tm-island-skeleton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--tm-border);
+  border-radius: var(--tm-radius-lg);
+  background: var(--tm-paper-100);
+  font-family: var(--tm-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--tm-fg-subtle);
+  text-transform: uppercase;
+}

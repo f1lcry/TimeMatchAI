@@ -1,0 +1,14 @@
+{% extends "landing/base.html" %}
+{% block main %}
+  {% include "landing/_partials/_hero.html" %}
+  {% include "landing/_partials/_logobar.html" %}
+  {% include "landing/_partials/_how_it_works.html" %}
+  {% include "landing/_partials/_features.html" %}
+  {% include "landing/_partials/_solver_diagram.html" %}
+  {% include "landing/_partials/_ai_chat.html" %}
+  {% include "landing/_partials/_stats.html" %}
+  {% include "landing/_partials/_testimonial.html" %}
+  {% include "landing/_partials/_faq.html" %}
+  {% include "landing/_partials/_pricing.html" %}
+  {% include "landing/_partials/_cta.html" with form=form %}
+{% endblock %}

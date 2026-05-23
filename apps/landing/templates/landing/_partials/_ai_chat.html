@@ -1,0 +1,36 @@
+{% load i18n %}
+<section class="tm-section tm-section--surface" id="ai-chat">
+  <div class="tm-container">
+    <div class="tm-section-head tm-reveal">
+      <span class="tm-eyebrow">{% trans "Read-only AI · работает только с вашими данными" %}</span>
+      <h2>{% trans "Расписание умеет отвечать на вопросы." %}</h2>
+      <p>{% blocktrans %}AI-помощник не выполняет SQL и не правит расписание сам. Он вызывает разрешённый набор Python-функций (get_schedule, get_room_availability, get_teacher_load…), которые сами фильтруют данные по вашему университету. Это граница безопасности, которую видно команде и аудитору.{% endblocktrans %}</p>
+    </div>
+
+    <div class="tm-aichat__grid">
+      <div class="tm-aichat__bullets">
+        <div class="tm-aichat__bullet tm-reveal">
+          <h3>{% trans "Только tool-calling" %}</h3>
+          <p>{% trans "Никакого свободного SQL. Whitelisted-функции с tenant-scoping на уровне ORM." %}</p>
+        </div>
+        <div class="tm-aichat__bullet tm-reveal">
+          <h3>{% trans "Цитирует источник" %}</h3>
+          <p>{% trans "Каждый ответ ссылается на конкретное окно расписания, аудиторию или преподавателя." %}</p>
+        </div>
+        <div class="tm-aichat__bullet tm-reveal">
+          <h3>{% trans "Локально или облако" %}</h3>
+          <p>{% trans "Поддерживает локальные LLM (LLaMA, Qwen) для университетов с требованиями по локализации данных." %}</p>
+        </div>
+      </div>
+
+      <div
+        class="tm-aichat-mount tm-reveal"
+        data-island="ai-chat"
+        data-props='{"locale": "{{ LANGUAGE_CODE }}"}'
+        aria-label="{% trans 'Демонстрация AI-помощника' %}"
+      >
+        <div class="tm-island-skeleton">{% trans "Запускается AI-помощник…" %}</div>
+      </div>
+    </div>
+  </div>
+</section>

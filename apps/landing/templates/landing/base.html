@@ -1,0 +1,23 @@
+{% load i18n static %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FBF9F4">
+  <title>{% block title %}{% trans "TimeMatch — расписание, решено." %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{% trans "Платформа AI-расписания для университетов. До 5× ниже стоимость администрирования. Пилот с НИУ ВШЭ, весна 2026." %}{% endblock %}">
+  <link rel="icon" href="{% static 'landing/img/favicon.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'landing/css/tokens.css' %}">
+  <link rel="stylesheet" href="{% static 'landing/css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'landing/css/components.css' %}">
+  <link rel="stylesheet" href="{% static 'landing/css/sections.css' %}">
+  <link rel="stylesheet" href="{% static 'landing/css/motion.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% include "landing/_partials/_header.html" %}
+  <main id="top">{% block main %}{% endblock %}</main>
+  {% include "landing/_partials/_footer.html" %}
+  <script src="{% static 'landing/js/dist/main.js' %}" defer></script>
+</body>
+</html>

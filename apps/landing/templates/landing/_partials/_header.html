@@ -1,0 +1,26 @@
+{% load i18n static %}
+<header class="tm-header" data-tm-header>
+  <div class="tm-header__inner">
+    <a href="{% url 'landing:home' %}" class="tm-header__logo" aria-label="TimeMatch">
+      <img src="{% static 'landing/img/logo.svg' %}" alt="TimeMatch">
+    </a>
+    <nav class="tm-header__nav" aria-label="{% trans 'Главная навигация' %}">
+      <a href="#platform" class="tm-header__link">{% trans "Платформа" %}</a>
+      <a href="#how" class="tm-header__link">{% trans "Как работает" %}</a>
+      <a href="#ai-chat" class="tm-header__link">{% trans "AI-помощник" %}</a>
+      <a href="#pricing" class="tm-header__link">{% trans "Цены" %}</a>
+      <a href="#faq" class="tm-header__link">FAQ</a>
+    </nav>
+    <div class="tm-header__actions">
+      <form action="{% url 'set_language' %}" method="post" style="display:inline-flex; margin:0;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/{% if LANGUAGE_CODE == 'ru' %}en/{% endif %}">
+        <input name="language" type="hidden" value="{% if LANGUAGE_CODE == 'ru' %}en{% else %}ru{% endif %}">
+        <button type="submit" class="tm-header__lang" aria-label="{% trans 'Переключить язык' %}">
+          {% if LANGUAGE_CODE == 'ru' %}<strong>RU</strong>·EN{% else %}RU·<strong>EN</strong>{% endif %}
+        </button>
+      </form>
+      <a href="#cta" class="tm-btn tm-btn--primary tm-btn--sm">{% trans "Запросить демо" %}</a>
+    </div>
+  </div>
+</header>

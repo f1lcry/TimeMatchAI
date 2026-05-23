@@ -1,0 +1,50 @@
+{% load i18n %}
+<section class="tm-section" id="pricing">
+  <div class="tm-container">
+    <div class="tm-section-head tm-reveal">
+      <span class="tm-eyebrow">{% trans "Цены" %}</span>
+      <h2>{% trans "От пилота — до полноценного контура." %}</h2>
+      <p>{% trans "Точная сумма — после короткого скоупинга. Все тиры включают AI-помощник и хранилище аудита." %}</p>
+    </div>
+
+    <div class="tm-pricing__grid">
+
+      <article class="tm-tier tm-reveal">
+        <h3 class="tm-tier__name">Pilot</h3>
+        <p class="tm-tier__pitch">{% trans "Один факультет · 6-12 недель · фиксированная цена" %}</p>
+        <ul class="tm-tier__list">
+          <li>{% trans "До 1 500 курсов в семестре" %}</li>
+          <li>{% trans "Импорт из CSV / Excel / API" %}</li>
+          <li>{% trans "AI-помощник · 5 пользователей" %}</li>
+          <li>{% trans "Отчёт по SLA по итогам" %}</li>
+        </ul>
+        <a href="#cta" class="tm-btn tm-btn--outline tm-tier__cta">{% trans "Связаться" %}</a>
+      </article>
+
+      <article class="tm-tier tm-tier--featured tm-reveal">
+        <h3 class="tm-tier__name">Production</h3>
+        <p class="tm-tier__pitch">{% trans "Университет целиком · годовая подписка · production SLA" %}</p>
+        <ul class="tm-tier__list">
+          <li>{% trans "Без ограничений по числу курсов" %}</li>
+          <li>{% trans "Коннекторы к СУО · webhook events" %}</li>
+          <li>{% trans "AI-помощник · все роли" %}</li>
+          <li>{% trans "Поддержка 24/5 · аудит-лог" %}</li>
+        </ul>
+        <a href="#cta" class="tm-btn tm-btn--primary tm-tier__cta">{% trans "Связаться" %}</a>
+      </article>
+
+      <article class="tm-tier tm-reveal">
+        <h3 class="tm-tier__name">Enterprise</h3>
+        <p class="tm-tier__pitch">{% trans "On-prem контур · ФСТЭК · кастомные SLA" %}</p>
+        <ul class="tm-tier__list">
+          <li>{% trans "Развёртывание в вашей инфраструктуре" %}</li>
+          <li>{% trans "Локальные LLM (LLaMA, Qwen)" %}</li>
+          <li>{% trans "Кастомные ограничения и роли" %}</li>
+          <li>{% trans "Выделенный инженер внедрения" %}</li>
+        </ul>
+        <a href="#cta" class="tm-btn tm-btn--outline tm-tier__cta">{% trans "Связаться" %}</a>
+      </article>
+
+    </div>
+  </div>
+</section>

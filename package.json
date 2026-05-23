@@ -1,0 +1,18 @@
+{
+  "name": "timematchai-landing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Front-end build for TimeMatch landing (React islands + vanilla, bundled via esbuild).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  },
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  }
+}

@@ -16,15 +16,43 @@ See [`docs/architecture.md`](docs/architecture.md) for the layout, hard invarian
 
 ## Status
 
-Early scaffold. Bootstrap decisions (package manager, design-system integration, LLM provider) are pending — see "Open decisions" in `docs/architecture.md`.
+Landing scaffold landed: Django 5 + uv + esbuild bundle for React islands (Hero schedule, AI chat). Three pages live: `/` (RU landing), `/en/` (EN), `/privacy/`. Lead form posts to `LeadRequest`, sends a `console.EmailBackend` notification in dev.
 
-## Toolchain (current)
+## Toolchain
 
-- **Language / runtime:** Python 3.13
-- **Framework (planned):** Django 5.x
+- **Runtime:** Python 3.13 (pinned via `.python-version`; package manager: `uv`)
+- **Framework:** Django 5.2
+- **Front-end:** vanilla CSS over design tokens + React islands bundled by `esbuild` (no Babel-in-browser)
 - **IDE:** JetBrains PyCharm (`.idea/` partially tracked)
 
-Commands, dependency manifest, and CI to be added once the stack is confirmed.
+## Local development
+
+Prereqs: `uv`, `node ≥ 20`, system GNU `gettext` for i18n (`sudo apt install gettext`).
+
+```bash
+# Python deps + venv
+uv sync
+
+# Front-end deps + initial bundle
+npm install
+npm run build           # one-off; or `npm run watch` while editing JSX
+
+# DB + run
+uv run python manage.py migrate
+uv run python manage.py runserver
+# → open http://localhost:8000/   (RU)
+# → open http://localhost:8000/en/ (EN, once .po is compiled)
+```
+
+Translation workflow (after `gettext` is installed):
+
+```bash
+uv run python manage.py makemessages -l en -l ru --ignore static --ignore node_modules --ignore design --ignore .venv
+# edit apps/landing/locale/{ru,en}/LC_MESSAGES/django.po
+uv run python manage.py compilemessages
+```
+
+Admin: `uv run python manage.py createsuperuser`, then `http://localhost:8000/admin/landing/leadrequest/`.
 
 ## Team
 

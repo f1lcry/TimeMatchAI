@@ -1,0 +1,14 @@
+{% extends "landing/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Политика приватности · TimeMatch" %}{% endblock %}
+{% block main %}
+<section class="tm-section tm-page">
+  <div class="tm-container tm-page__copy">
+    <span class="tm-eyebrow">{% trans "Политика" %}</span>
+    <h1>{% trans "Политика приватности." %}</h1>
+    <p>{% blocktrans %}<!-- TODO: финальный юридический текст от Daniel Potekhin -->TimeMatch собирает только те данные, что нужны для контакта с университетом (имя, email, название университета, роль и опциональное сообщение). Данные хранятся в защищённой базе на территории РФ, не передаются третьим лицам и удаляются по запросу.{% endblocktrans %}</p>
+    <p>{% blocktrans %}Для прав доступа к данным согласно 152-ФЗ — напишите на адрес из футера. Финальная редакция документа появится перед запуском платного контура.{% endblocktrans %}</p>
+    <a href="{% url 'landing:home' %}" class="tm-btn tm-btn--outline tm-page__back">{% trans "← На главную" %}</a>
+  </div>
+</section>
+{% endblock %}
