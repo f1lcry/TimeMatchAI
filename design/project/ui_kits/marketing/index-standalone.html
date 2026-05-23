@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeMatch — Scheduling, solved.</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+
+  <!-- Resources lifted from JS string references -->
+  <meta name="ext-resource-dependency" content="../../assets/logo.svg"             data-resource-id="logo" />
+  <meta name="ext-resource-dependency" content="../../assets/logo-inverse.svg"     data-resource-id="logoInverse" />
+  <meta name="ext-resource-dependency" content="../../assets/grid-pattern.svg"     data-resource-id="gridPattern" />
+  <meta name="ext-resource-dependency" content="../../assets/grid-pattern-dark.svg" data-resource-id="gridPatternDark" />
+
+  <template id="__bundler_thumbnail" data-bg-color="#FBF9F4">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#FBF9F4"/>
+      <!-- Hairline timetable grid -->
+      <g stroke="#E2DBCD" stroke-width="1">
+        <line x1="0"   y1="200" x2="1200" y2="200"/>
+        <line x1="0"   y1="320" x2="1200" y2="320"/>
+        <line x1="0"   y1="440" x2="1200" y2="440"/>
+        <line x1="0"   y1="560" x2="1200" y2="560"/>
+        <line x1="0"   y1="680" x2="1200" y2="680"/>
+        <line x1="240" y1="200" x2="240"  y2="800"/>
+        <line x1="432" y1="200" x2="432"  y2="800"/>
+        <line x1="624" y1="200" x2="624"  y2="800"/>
+        <line x1="816" y1="200" x2="816"  y2="800"/>
+        <line x1="1008" y1="200" x2="1008" y2="800"/>
+      </g>
+      <!-- A few "matched" cells -->
+      <rect x="241" y="321" width="190" height="118" fill="#C6BFFF"/>
+      <rect x="433" y="201" width="190" height="118" fill="#FFB39A"/>
+      <rect x="625" y="441" width="190" height="118" fill="#BDD9C3"/>
+      <rect x="817" y="321" width="190" height="118" fill="#B8D4F0"/>
+      <rect x="1009" y="201" width="190" height="118" fill="#D9F23E"/>
+      <!-- Monogram -->
+      <g transform="translate(80 80)">
+        <rect x="0" y="0" width="80" height="80" rx="5" fill="none" stroke="#0B1426" stroke-width="2.5"/>
+        <line x1="40" y1="0" x2="40" y2="80" stroke="#0B1426" stroke-width="2.5"/>
+        <line x1="0" y1="40" x2="80" y2="40" stroke="#0B1426" stroke-width="2.5"/>
+        <rect x="41" y="41" width="38" height="38" fill="#D9F23E"/>
+      </g>
+      <!-- Wordmark -->
+      <text x="200" y="135"
+            font-family="Georgia, 'Times New Roman', serif"
+            font-size="68" font-weight="400"
+            letter-spacing="-1"
+            fill="#0B1426">TimeMatch</text>
+    </svg>
+  </template>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--tm-bg);
+      color: var(--tm-fg);
+      font-family: var(--tm-font-sans);
+      overflow-x: hidden;
+    }
+    button { font-family: inherit; }
+    .tm-uni-word:last-child { border-right: none !important; }
+    :focus-visible { outline: 2px solid var(--tm-ink-900); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="atoms.jsx"></script>
+  <script type="text/babel" src="Header.jsx"></script>
+  <script type="text/babel" src="ScheduleGrid.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="LogoBar.jsx"></script>
+  <script type="text/babel" src="HowItWorks.jsx"></script>
+  <script type="text/babel" src="Features.jsx"></script>
+  <script type="text/babel" src="Stats.jsx"></script>
+  <script type="text/babel" src="Testimonial.jsx"></script>
+  <script type="text/babel" src="CTA.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          <Header />
+          <main>
+            <Hero />
+            <LogoBar />
+            <HowItWorks />
+            <Features />
+            <Stats />
+            <Testimonial />
+            <CTA />
+          </main>
+          <Footer />
+        </>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

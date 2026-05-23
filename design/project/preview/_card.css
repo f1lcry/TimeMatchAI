@@ -1,0 +1,40 @@
+/* Shared base for all design-system preview cards.
+   Each card is targeted at ~700×N px, rendered into the Design System tab. */
+@import url('../colors_and_type.css');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--tm-bg);
+  color: var(--tm-fg);
+  font-family: var(--tm-font-sans);
+}
+
+.tm-card {
+  padding: 24px 28px;
+  box-sizing: border-box;
+}
+.tm-card-row {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+.tm-card-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tm-card-eyebrow {
+  font-family: var(--tm-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tm-fg-muted);
+}
+.tm-card-meta {
+  font-family: var(--tm-font-mono);
+  font-size: 11px;
+  color: var(--tm-fg-subtle);
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Spacing scale</title><link rel="stylesheet" href="_card.css"></head>
+<body>
+<div class="tm-card">
+  <div class="tm-card-eyebrow" style="margin-bottom:14px">Spacing · 4px base</div>
+  <div style="display:flex;flex-direction:column;gap:6px">
+  </div>
+  <div id="rows"></div>
+</div>
+<script>
+const sizes = [
+  ['1', 4], ['2', 8], ['3', 12], ['4', 16],
+  ['5', 24], ['6', 32], ['7', 48], ['8', 64], ['9', 96], ['10', 128]
+];
+document.getElementById('rows').innerHTML = sizes.map(([n, px]) => `
+  <div style="display:flex;align-items:center;gap:14px;font-family:'Geist Mono',monospace;font-size:11px;color:#5B6473">
+    <span style="width:54px;color:#0B1426">space-${n}</span>
+    <div style="height:10px;width:${px}px;background:#0B1426"></div>
+    <span style="color:#7C8597">${px}px</span>
+  </div>
+`).join('');
+</script>
+</body></html>
